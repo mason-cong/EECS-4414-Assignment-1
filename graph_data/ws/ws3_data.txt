@@ -1,3 +1,5 @@
-Global clustering coefficient: 0.1000406066968332
-Average shortest path length: 2.6933833833833836
+Global clustering coefficient: 0.10286924284998147
+Average shortest path length: 2.6951451451451454
 Diameter of the graph: 4
+Number of nodes in GCC: 1000
+Number of edges in GCC: 10000
