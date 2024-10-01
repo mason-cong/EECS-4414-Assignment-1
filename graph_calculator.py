@@ -4,26 +4,26 @@ import numpy as np
 
 def calculateGraphMeasurements(G, fileName):
     
-    largest_cc = max(nx.connected_components(G), key=len)
+    graph_type = fileName[:-1]
     #node degree distribution plot
     hist = nx.degree_histogram(G)
     plt.xlabel("Node degree")
     plt.ylabel("Number of nodes")
     plt.plot(hist)
-    plt.savefig(fileName + "/" + fileName + "_degree_dist.png")
+    plt.savefig("graph_data/" + graph_type + "/" + fileName + "_degree_dist.png")
     plt.close()
 
     #local clustering coefficient plot
-    clus = nx.clustering(G)
-    plt.xlabel("Clustering Coefficient")
-    plt.ylabel("N")
-    plt.savefig(fileName + "/" + fileName + "_clustering_dist.png")
-    plt.close()
+    #clus = nx.clustering(G)
+    #plt.xlabel("Clustering Coefficient")
+    #plt.ylabel("N")
+    #plt.savefig(fileName + "/" + fileName + "_clustering_dist.png")
+    #plt.close()
     #shortest path lengths plot
 	#plt.savefig(fileName + "/" + fileName + "_shortest_dist.png")
 
     #open file to put in numerical values
-    file = open(fileName + "/" + fileName + "_data.txt", "w")
+    file = open("graph_data/" + graph_type + "/" + fileName + "_data.txt", "w")
     #global clustering coefficient
     file.write("Global clustering coefficient: %s\n" % nx.average_clustering(G))
 
