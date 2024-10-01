@@ -7,6 +7,7 @@ def calculateGraphMeasurements(G, fileName):
     graph_type = fileName[:-1]
     #node degree distribution plot
     hist = nx.degree_histogram(G)
+    plt.title("Node Degree Distribution Plot")
     plt.xlabel("Node degree")
     plt.ylabel("Number of nodes")
     plt.plot(hist)
@@ -14,13 +15,20 @@ def calculateGraphMeasurements(G, fileName):
     plt.close()
 
     #local clustering coefficient plot
-    #clus = nx.clustering(G)
-    #plt.xlabel("Clustering Coefficient")
-    #plt.ylabel("N")
-    #plt.savefig(fileName + "/" + fileName + "_clustering_dist.png")
-    #plt.close()
+    clus = nx.clustering(G)
+    plt.title("Local Clustering Distribution Plot")
+    plt.xlabel("Graph Nodes")
+    plt.ylabel("Clustering Coefficient")
+    plt.bar(clus.keys(), clus.values())
+    plt.savefig("graph_data/" + graph_type + "/" + fileName + "_clustering_dist.png")
+    plt.close()
+
     #shortest path lengths plot
-	#plt.savefig(fileName + "/" + fileName + "_shortest_dist.png")
+    plt.title("Shortest Path Lengths Distribution Plot")
+    plt.xlabel("Path Lengths")
+    plt.ylabel("Number of Nodes")
+    plt.savefig("graph_data/" + graph_type + "/" + fileName + "_shortest_paths_dist.png")
+    plt.close()
 
     #open file to put in numerical values
     file = open("graph_data/" + graph_type + "/" + fileName + "_data.txt", "w")
