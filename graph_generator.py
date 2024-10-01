@@ -1,21 +1,34 @@
-import networkx as net
+import networkx as nx
 import matplotlib.pyplot as plt
+from graph_calculator import calculateGraphMeasurements
 
 def watts_graphs():
-    n = 1000
-    k = 4
-    p = 0.25
     #1
-    G = net.watts_strogatz_graph(n, k, p)
-    net.draw(G)
-    plt.show()
-    #list(G.nodes)S
-    #2
-    #p = 1/5
-    #G = net.watts_strogatz_graph(n, k, p)
-    #3
-    #p = 1/6
-    #G = net.watts_strogatz_graph(n, k, p)
+    n = 1000
+    k = 20
+    p = 1/5
+    fileName = "ws1"
 
+    G = nx.watts_strogatz_graph(n, k, p)
+    calculateGraphMeasurements(G, fileName)
+
+    #2
+    n = 1000
+    k = 20
+    p = 1/7
+    fileName = "ws2"
+
+    G = nx.watts_strogatz_graph(n, k, p)
+    calculateGraphMeasurements(G, fileName)
+
+    #3
+    n = 1000
+    k = 20
+    p = 1/2
+    fileName = "ws3"
+
+    G = nx.watts_strogatz_graph(n, k, p)
+    calculateGraphMeasurements(G, fileName)
+    
 watts_graphs()
 
